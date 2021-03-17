@@ -1,0 +1,101 @@
+<div class="container d-flex align-items-center justify-content-center"  >
+    <div class="card " style="width: 450px; margin-top: 40px; margin-bottom:40px; "  >
+        <div class="card-body"  >
+            <h3 class="text-center card-title">Inscription</h3>
+            <div class="alert alert-danger" *ngIf="isSignUpFailed === true">
+                {{errorMessage}}
+            </div>
+            <div *ngIf="isSuccessful" class="alert alert-success">
+                register successful <a routerLink="/connexion">connectez vous pour finalisez votre achat</a>
+            </div>
+            <form *ngIf="!isSuccessful" #registerForm = "ngForm" (ngSubmit)="onSubmit()" >
+               <div class="form-row" >
+                   <div class="col form-group">
+                    <label for="name" >Nom</label> 
+                    <input type="text" required class="form-control " #firstName="ngModel" 
+                    [class.is-invalid]="firstName.invalid && firstName.touched" id="firstName" placeholder="Nom" name="firstName"  [(ngModel)]="userModel.firstName">
+                     <!-- message d'erreur à afficher lorsque le champ name n'est pas valide -->
+                    <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched"> nom requis</small>
+                   </div>
+                   <div class="col form-group">
+                    <label >Prénom</label> 
+                    <input type="text" required class="form-control " #lastName="ngModel" 
+                    [class.is-invalid]="lastName.invalid && lastName.touched" id="name" placeholder="lastName" name="lastName"  [(ngModel)]="userModel.lastName">
+                     <!-- message d'erreur à afficher lorsque le champ name n'est pas valide -->
+                    <small class="text-danger" [class.d-none]="lastName.valid || lastName.untouched">prénom réquis</small>
+                   </div>
+                </div>
+                <div class="form-row">
+                    <div class="col form-group">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" required class="form-control" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        [class.is-invalid]="email.invalid  && email.touched " id="inputEmail4" placeholder="Email" name="email" [(ngModel)]="userModel.email" >
+                        <div *ngIf="email.errors &&(email.valid ||email.untouched)">
+                          <!-- message d'erreur spécifique à afficher lorsque le champ email est vide  -->
+                        <small class="text-danger" *ngIf="email.errors.required">l'email est obigatoire </small>
+                                      <!-- message d'erreur spécifique à afficher lorsque lemail est incorrect -->
+                        <small class="text-danger" *ngIf="email.errors.pattern">l'email est incorrect</small>
+                        </div>
+                    </div>
+                    <div class="col form-group">
+                        <label for="userName">nom d'utulisateur</label>
+                        <input type="text" required class="form-control " #username="ngModel" 
+                        [class.is-invalid]="username.invalid && username.touched" id="name" placeholder="username" name="username"  [(ngModel)]="userModel.username">
+                         <!-- message d'erreur à afficher lorsque le champ name n'est pas valide -->
+                        <small class="text-danger" [class.d-none]="username.valid || username.untouched">username réquis</small>
+                    </div>
+                   
+                  </div>
+                  <div class="form-group col-md-6">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="genre" id="genre1" value="Homme"  [(ngModel)]="userModel.genre">
+                      <label class="form-check-label" for="genre1">Homme</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="genre" id="genre2" value="Femme" [(ngModel)]="userModel.genre">
+                      <label class="form-check-label" for="genre2">Femme</label>
+                    </div>
+                   </div>
+                   <div class="form-row" >
+                    <div class="col form-group">
+                     <label for="name" >Ville</label> 
+                     <input type="text" required class="form-control " #city="ngModel" 
+                     [class.is-invalid]="city.invalid && city.touched" id="city"  name="city"  [(ngModel)]="userModel.city">
+                      <!-- message d'erreur à afficher lorsque le champ name n'est pas valide -->
+                     <small class="text-danger" [class.d-none]="city.valid || city.untouched"> nous voulons connaitre votre ville</small>
+                    </div>
+                    <div class="col form-group">
+                     <label >Pays</label> 
+                     <input type="text" required class="form-control " #country="ngModel" 
+                     [class.is-invalid]="country.invalid && country.touched" id="name" placeholder="lastName" name="country"  [(ngModel)]="userModel.country">
+                      <!-- message d'erreur à afficher lorsque le champ name n'est pas valide -->
+                     <small class="text-danger" [class.d-none]="country.valid || country.untouched">bah, ton pays est neccessaire</small>
+                    </div>
+                 </div>
+             <div class="form-row" >
+                <div class="col-md-6 form-group">
+                 <label >Mot de passe</label> 
+                 <input type="password" name="password1" class="form-control" #password1="ngModel" [(ngModel)]="userModel.password1">
+                </div>
+                <div class="col-md-6 form-group">
+                 <label >Répéter le mot de passe</label> 
+                 <input  type="password" name="password2" required class="form-control" #password2="ngModel" 
+                 minlength="6"
+                 [(ngModel)]="userModel.password2">
+                </div>
+                
+             </div> 
+            <div class="form-group mt-3">
+                <button [disabled]="registerForm.form.invalid"  type="submit" class="text-white btn btn-warning btn-block">Inscription</button>
+            </div>
+            <hr>
+            <p class="text-center">
+                vous avez un compte ? <a class="text-warning" routerLink="/connexion">Connectez-vous</a>
+
+            </p>
+            </form>
+            
+        </div> 
+        
+    </div>
+</div>

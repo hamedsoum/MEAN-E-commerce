@@ -1,0 +1,48 @@
+<div class="nav border-bottom border-secondary bg-white">
+    <div class="max-width">
+        <div routerLink="/" class="logo  font-weight-bold ">
+            <p style="color:#CED4DA; font-size: 15px;">Soumahoro</p> <br>
+            <span class="text-warning">Ecommerce</span>
+        </div>
+        <div class="search">
+            <input class="rounded-left" type="text" placeholder="search">
+            <button class="bg-warning rounded-right border border-warning">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <div class="cartRegister">
+            <div class="carthea">
+                <div (click)="showCartItems()" class=" mr-4 text-secondary cart icon icon-sm rounded-circle border">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge badge-pill rounded-circle  notify">{{allPRoductt}}</span>  
+                </div>
+                <ul [ngClass]="{'header-cart': showCartItem == false, 'show-header-dropdown': showCartItem == true }"   class="list-group-item header-cart">
+                    <li *ngFor="let item of cartITEM; index as i" class="list-group-item" >
+                       <app-cart-item
+                         [cartItem] = "item" 
+                         [index] = "i"
+                        ></app-cart-item>
+                    </li>
+                   <li   class="list-group-item ">
+                        <button  routerLink="/panier" *ngIf="cartItems" style=" width: 100%; color: white; cursor: pointer;" class="btn btn-warning" 
+                            [disabled]="cartItems.length <= 0">
+                            <strong>VOIR LE PANIER</strong>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div   class="mr-3 text-secondary cart icon icon-sm rounded-circle border">
+                <i class="far fa-user"></i>     
+            </div>
+            <div class="welcome"  *ngIf="!isLoggedIn">
+                <p style="color:black; font-size: 15px;"><a routerLink="connexion" class="pr-2 border-right border-dark" href="">Connexion</a><a class="pl-2 " routerLink="inscription">inscription</a></p>
+            </div>
+            <div class="welcome" *ngIf="isLoggedIn">
+                <p style="color:#CED4DA; font-size: 15px;" >bienvenue !</p>
+                <p style="color:black; font-size: 15px;">
+                    <a routerLink="/profil" class="pr-2 border-right border-dark" >{{ username }}</a>
+                    <a class="pl-2" (click)="logout()">Déconnexion</a></p>
+            </div>
+        </div>
+    </div>
+</div>

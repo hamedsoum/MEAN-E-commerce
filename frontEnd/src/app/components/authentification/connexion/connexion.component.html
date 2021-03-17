@@ -1,0 +1,32 @@
+<div class="container d-flex align-items-center justify-content-center"  >
+    <div class="card " style="width: 400px; margin-top: 62px; margin-bottom:62px; "  >
+        <div class="card-body"  >
+            <h4 class="text-center card-title">Connexion</h4>
+            <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf=" isLoginFailed"
+          >
+            connexion erroné: {{ errorMessage }}
+          </div>
+          
+            <form #connexionForm = "ngForm" (ngSubmit)="onSubmit()">
+               <div class="form-group" >
+                   <label >Username</label> 
+                   <input [(ngModel)]="form.username" type="text" name="username" class="form-control" #username="ngModel"  placeholder="Adresse Email"  id="email">
+               </div>
+               <div class="form-group" >
+                <label >Mot de passe</label> 
+                <input [(ngModel)]="form.password1"  value=""  type="password" name="password1" #password1="ngModel"  class="form-control" placeholder="*****"  id="password">
+            </div> 
+            <div class="form-group">
+                <button type="submit" class="text-white btn btn-warning btn-block">Connexion</button>
+            </div>
+            </form>
+            <div class="card-footer text-center" >
+                vous n'avez pas de compte ? <a class="text-warning" routerLink="/inscription">Inscrivez-vous</a>
+            </div>
+        </div> 
+        
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div style="margin-bottom:20px;" class="text-center jumbotron">
+    <h1  class="display-4"> Panier</h1>
+</div>
+<div  class="section-content padding-y bg" >
+    <div  [ngClass]="{'popup' :popupShow === true , 'hidden':popupShow === false }" >
+        <span (click)=" hiddenPopup()"  class="close">&times;</span>
+        <div class=" mx-3 mt-4 alert alert-warning">
+            connectez vous pour fianliser votre achat
+        </div>
+        <app-connexion></app-connexion>
+    </div>
+    <div class=" container" >
+        <div  class="row">
+            <aside class="col-lg-9">
+                <div class="card">
+                    <table class="table table-borderless table-shopping-card" >
+                        <thead class="text-muted">
+                            <tr class="small text-uppercase" >
+                                <th scope="col">Product</th>
+                                <th scope="col" width="120">Quantité</th>
+                                <th scope="col" width="120">prix</th>
+                                <th scope="col" width="200">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cartItem of cartItems" >
+                                <td>
+                                    <figure class="">
+                                        <div class="d-flex  align-items-center">
+                                            <img src="{{cartItem.image}}" width="50" class="img-sm" alt="" srcset="">
+                                            <figcaption class="info" >
+                                                <a routerLink="" class="title text-dark">{{cartItem._productName}}</a>
+                                            <p class="small text-muted">{{cartItem.description}}</p>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="" id="">
+                                        <option value="">{{cartItem.qty}}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="price-wrap" >
+                                        <var class="price">
+                                            <strong> {{cartItem.price * cartItem.qty}}</strong>
+                                           
+                                        </var>
+                                    </div>
+                                </td>
+                                <td>
+                                     <a (click)="handleDeleteToCart()" class="btn btn-danger " >supprimer</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </aside>
+            <aside class="col-lg-3" >
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form >
+                            <div class="form-group">
+                                <label for="">un code coupon ?</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name placeholder="code coupon">
+                                    <span class="input-group-append">
+                                        <button class="text-white btn btn-warning">
+                                            Valider
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between w-100  ">
+                            <p>TOTAL</p>
+                            <p><strong>{{carTTotal}}</strong></p>
+                            
+                        </div>
+                        <div class="d-flex justify-content-between w-100 border-bottom border-secondary ">
+                            <p>coupon appliqué</p>
+                            <p><strong>8000</strong></p>
+                            
+                        </div>
+                        <div  class="w-100 d-flex justify-content-center mt-3 mb-3">
+                            <img src="assets/images/orange.png" class="mr-2 rounded" width="40" alt="" srcset="">
+                            <img src="assets/images/mtn.jpg" class="mr-2 rounded" width="40" alt="" srcset="">
+                            <img src="assets/images/moov.jpg"class="mr-2 rounded"  width="40" alt="" srcset="">
+                        </div>
+
+                        <a (click)="finaliser()" class="text-white btn btn-warning btn-block">Finaliser l'achat</a>
+                        <a routerLink="/" class="btn btn-light btn-block" >continuer l'achat</a>
+                    </div>
+                </div>
+            </aside>
+
+    </div>
+    
+    </div>
+   
+       
+
+</div>

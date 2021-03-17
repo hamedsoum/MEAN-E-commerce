@@ -1,0 +1,15 @@
+                 
+                    <div class="item">
+                      <div class="overlay py-3 text-warning d-flex justify-content-center align-items-center">
+                         <i routerLink="productdetails/{{productItem.id}}" class="fas fa-search-plus"></i>
+                          details
+                      </div>
+                      <img class="card-img-top" src="{{productItem.image}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title mb-1">{{productItem.name}}</h5>
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                      <span class="prix">{{productItem.prix}}</span>
+                      <a (click)="handleAddToCart()"
+                        style="width: 100%;" class="btn btn-warning text-white">Ajouter au panier</a>
+                    </div>
+                    </div>

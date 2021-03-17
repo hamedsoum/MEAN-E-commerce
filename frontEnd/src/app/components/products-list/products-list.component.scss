@@ -1,0 +1,37 @@
+.body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.productContent{
+    display : flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.poductList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.poductList .card{
+    width: calc(33% - 10px);
+    display: flex;
+    align-items: center;
+}
+
+.poductList img{
+    height: 220px;
+    width: 220px ;
+}
+
+.poductList .prix{
+    font-size: 15px;
+    
+    font-weight: 700;
+}
+

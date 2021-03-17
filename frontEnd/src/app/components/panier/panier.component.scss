@@ -1,0 +1,59 @@
+.search input {
+    
+    height: 38px;
+    border: 1px solid #CED4DA;
+    
+}
+.search input::placeholder{
+    color:  #CED4DA ;
+    font-size: 15px;
+}
+
+.fa-search{
+    color: white;
+}
+
+button{
+    height: 38px;
+    
+}
+
+.right{
+    width: 311.141px;
+}
+
+.popup{
+    display: block;
+   background-color: white;
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    text-align: center;
+    z-index: 999;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s
+   
+}
+
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor : pointer;
+    font-size : 30px;
+}
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+
+.hidden{
+    display: none;
+}
+
+.popup > a{
+    text-decoration: none;
+    color: orange;
+}

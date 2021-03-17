@@ -1,0 +1,52 @@
+<section *ngIf="product" class=" my-3 section-content padding-y bg" >
+    <div class="container">
+        <div class="card">
+            <div class="row no-gutters">
+                <aside class="col-md-6">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            <a href="">
+                                <img src="{{product.image}}" alt="" srcset="">
+                            </a>
+                        </div>
+                        <div class="thumbs-wrap d-flex justify-content-center ">
+                            <div class="card mr-2" >
+                                <img src="{{product.image}}" width="80" class="" alt="" srcset="">
+                            </div>
+                            
+                            <div class="card mr-2" >
+                                <img src="{{product.image}}"  width="80" alt="" srcset="">
+                            </div>
+
+                            <div class="card mr-2" >
+                                <img src="{{product.image}}"  width="80" alt="" srcset="">
+                            </div>
+                        </div>
+                    </article>
+                </aside>
+                <main class="col-md-6 border-left">
+                    <article class="content-body p-4" >
+                        <h2 class="title" >{{product.description}}</h2>
+                        <h3 class="my-3" ><strong>{{product.prix}}</strong></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, velit quas tempore minima expedita consectetur sequi tenetur necessitatibus cum maiores placeat reprehenderit, nesciunt facere? Quos.</p>
+                        <hr>
+                        <div class="form-group">
+                            <label for="">quantité</label>
+                            <div class="input-group input-spinner">
+                                <div class="row">
+                                    <div class="input-group-prepend col-5">
+                                        <button class="btn btn-light" type="button" >-</button>
+                                        <input type="text" class="form-control" value="{{product.qty}}">
+                                        <button class="btn btn-light" type="button" >+</button>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                        <a (click)="handleAddToCart()" class=" btn btn-outline-warning">Ajouter au panier <i class="fas fa-shopping-cart"></i></a>
+                    </article>
+                </main>
+            </div>
+        </div>
+    </div>
+</section>

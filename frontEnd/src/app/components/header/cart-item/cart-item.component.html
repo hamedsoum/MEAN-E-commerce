@@ -1,0 +1,7 @@
+
+<div class="cart-item">
+    <img src="{{cartItem.image}}" width="45" alt="" srcset="">
+    <span>{{cartItem._productName}}</span> x <span>{{cartItem.qty}}</span> : 
+    <strong class="mr-2" > {{cartItem.price * cartItem.qty}}</strong>
+    <i (click)="handleDeleteToCart()"  class="fas fa-trash text-danger"></i>
+</div>

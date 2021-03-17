@@ -1,0 +1,39 @@
+<div class="body">
+    <div class="text-center jumbotron">
+        <h1 class="display-4"> Soumbill Ecommerce!</h1>
+    </div>
+    <section class="section-content padding-y bg" >
+      <div class="container">
+        <div class="row ">
+             <aside class="col-lg-3 mb-3">
+                 <div class="card" >
+                     <div class="card-body">
+                       <h5 class="card-title bg-warning py-2 text-white rounded text-center">Catégories</h5>
+                        <div class="card-body">
+                          <ul class="list-group">
+                           
+                            <li class="list-group-item">
+                                électronique
+                            </li>
+                            <li class="list-group-item">
+                              meuble
+                          </li>
+                          <li class="list-group-item">
+                            vétements
+                        </li>
+                          </ul>
+                        </div>
+                     </div>
+                   </div>
+              </aside>
+             <aside class="col-lg-9 poductList">
+                 <div *ngFor="let product of products" class="card mb-5" >
+                   <app-product-item [productItem] = "product"></app-product-item>
+              </div>
+            </aside>
+ 
+            
+     </div>
+ </div>
+    </section>
+    
