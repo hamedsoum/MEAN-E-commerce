@@ -25,4 +25,4 @@ mongoDB-Express-Angular-Nodejs
 <p>jsonwebtoken 8.5.1</p>
 <p>mongoose 5.11.18</p>
 
-<p><a href="https://soumecommerce.herokuapp.com/">clickez ici pour voir  l'application hébergé sur héroku</a></p>
+<p><a href="https://soumecommerce.herokuapp.com/">clickez ici </a> pour voir  l'application hébergé sur héroku</p>
